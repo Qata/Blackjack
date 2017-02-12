@@ -9,7 +9,6 @@ const int MAX_TURNS = 5;
 
 int getCardSuit(int card)
 {
-
 	return ceil((card + 1) / 13.) - 1;
 }
 
@@ -321,6 +320,7 @@ void drawFaceDownCard(int y, int x)
 	{
 		mvprintw(y + i, x, "|        |");
 	}
+
 	mvprintw(y + 7, x, "|________|");
 	attroff(COLOR_PAIR(2));
 }
@@ -346,9 +346,9 @@ int play(int * playerScore, int * dealerScore)
 	shuffleDeck(cards);
 
 	WINDOW * screen = stdscr;
-    curs_set(0);
+	curs_set(0);
 	noecho();
-    keypad(stdscr, TRUE);
+	keypad(stdscr, TRUE);
 
 	if (nodelay(screen, TRUE) == ERR)
 	{
